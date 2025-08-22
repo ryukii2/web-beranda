@@ -1,0 +1,766 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    background-color: #f0f8ff;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 5%;
+    background-color: darkcyan;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    user-select: none;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.logo, .logo1 {
+    color: #fff;
+    font-weight: 600;
+}
+
+.logosby {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background:#fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    transform-origin: right;
+}
+
+.navigation a:hover::after {
+    transform:scaleX(1);
+    transform-origin: left;
+}
+
+.navigation .btn-login {
+    width: 130px;
+    height: 45px;
+    border-radius: 14px;
+    outline: none;
+    cursor: pointer;
+    border:2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 650;
+    transition: all 0.3s;
+}
+
+.navigation .btn-login:hover {
+    background-color: #fff;
+    color: darkcyan;
+    transform: translateY(-2px);
+}
+
+/* dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tombol dropdown (Pengajuan) */
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Isi dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: darkcyan;
+    margin-top: 12px;
+    min-height: 120px;
+    padding: 10px 0;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 99;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* Overlay Menu */
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, #008B8B 0%, #20B2AA 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: width 0.4s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-content {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+}
+
+.overlay-content a,
+.overlay-content .btn-login {
+    display: block;
+    margin: 25px 0;
+    font-size: 1.3em;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.overlay-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid white;
+    transform: translateX(5px);
+}
+
+.overlay-dropdown {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.overlay-dropdown:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid white;
+    transform: translateX(5px);
+}
+
+.overlay-content .btn-login {
+    border: 2px solid white;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+.overlay-content .btn-login:hover {
+    background-color: white;
+    color: darkcyan;
+    transform: translateX(0);
+    border-left: 2px solid white;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 300;
+    z-index: 103;
+}
+
+.overlay .closebtn:hover {
+    color: #ff6b6b;
+    transform: rotate(90deg);
+}
+
+/* Overlay dropdown */
+.overlay-dropdown {
+    margin: 10px 0;
+}
+.overlay-dropdown-toggle {
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: block;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: background 0.3s;
+    position: relative;
+    user-select: none;
+}
+.overlay-dropdown-content {
+    display: none;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.overlay-dropdown.active .overlay-dropdown-content {
+    display: flex;
+}
+.overlay-dropdown-content a {
+    color: white;
+    padding: 10px 0 10px 20px;
+    text-decoration: none;
+    font-size: 1.05em;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+.overlay-dropdown-content a:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 500px; 
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(55%); 
+}
+
+.banner-text .banner-text1 {
+    color: #fff;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.banner-text .banner-text2 {
+    font-weight: lighter;
+    color: #fff;
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+/* Alur */
+.judul-alur{
+    margin-top: 30px;
+    font-size: 1.8em;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.container-alur {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100%; 
+    overflow: hidden;
+}
+
+.container-alur img {
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.imgalur {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+}
+
+.judul-pengajuan{
+    margin-top: 30px;
+    font-size: 1.8em;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;;
+}
+
+/* Kotak Pengajuan */
+.container-pengajuan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5px;
+    margin-bottom: 3em;
+    padding: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 15em;
+}
+
+/* Kotak Magang */
+.container-magang, .container-penelitian {
+    position: relative;
+    width: 35em;
+    max-width: 700px;
+    padding: 24px;
+    flex-direction: column;
+    justify-content:center;
+    margin: 2px 10px 0 0;
+    height: auto;
+    display: flex;
+    color: #fff;
+    background: darkcyan;
+    border-radius: 12px;
+    box-shadow: 2px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.container-magang:hover,
+.container-penelitian:hover {
+    box-shadow:0 0 5px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.container-magang h2,
+.container-penelitian h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.container-magang p,
+.container-penelitian p {
+    font-weight: 385;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.container-magang .btn-magang,
+.container-penelitian .btn-penelitian {
+    font-weight: 500;
+    width: 128px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    margin: 5px 0 0 0;
+    transition: all 0.3s;
+}
+
+.container-magang .btn-magang:hover,
+.container-penelitian .btn-penelitian:hover {
+    background-color: #fff;
+    color: darkcyan;
+    transform: translateY(-2px);
+}
+
+/* Footer Styles */
+.footer {
+    background: darkcyan;
+    color: white;
+    padding: 40px 5%;
+    display: flex;
+    justify-content: space-between; /* kiri vs kanan */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Bagian kiri (logo + title + alamat) */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 60%;
+}
+
+/* Header: logo + judul */
+.footer-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.footer-title {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.footer-title h3 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.footer-title h4 {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.footer-info p {
+    margin: 6px 0;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.footer-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    text-decoration: underline;
+    color: #b0e0e6;
+}
+
+/* Bagian kanan (sosmed) */
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.social-media h4{
+    margin-right: 58px;
+    font-weight: 500;
+    margin-bottom: 12px;
+
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.3em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: white;
+    color: darkcyan;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 102;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo { 
+        font-size: 1.2em; 
+    }
+
+    .logo1 { 
+        font-size: 0.9em; 
+    }
+
+    .logosby { 
+        width: 40px; height: 40px; 
+    }
+
+    .navigation { 
+        display: none; 
+    }
+
+    .hamburger { 
+        display: flex; 
+    }
+
+    .banner-img{
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+    }
+
+    .banner-text .banner-text1 {
+      font-size: 1.6em; /* perkecil judul */
+      top: 50%;
+    }
+
+    .banner-text .banner-text2 {
+      font-size: 1em;
+      top: 65%;
+      padding: 0 15px; /* kasih ruang biar teks tidak mentok */
+      line-height: 1.4;
+    }
+
+    .judul-alur,
+    .judul-pengajuan{
+        font-size: 1em;
+        margin-top: 30px;
+    }
+
+  .container-alur img{
+    max-width: 330px;
+  } 
+
+  .imgalur {
+      max-width: 98%;
+      margin-top: 30px;
+  }
+
+  /* Pengajuan */
+  .container-pengajuan {
+      flex-direction: column;
+      gap: 1.5em; /* lebih rapat di mobile */
+  }
+
+  .container-magang, 
+  .container-penelitian {
+      width: 90%;
+      margin: 0 auto;
+  }
+
+    /* Footer responsive */
+    .footer {
+        flex-direction: column;
+        text-align: left;
+        padding: 30px 25px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .footer-title {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .footer-title h3 {
+        margin: 0;
+        font-size: 1.4em;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .footer-title h4 {
+        margin: 0;
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .footer-info p {
+        margin: 6px 0;
+        line-height: 1.5;
+        font-size: 0.95em;
+    }
+
+    .social-media h4{
+    margin-left: 60px;
+    margin-bottom: 15px;
+    }
+
+    .social-media {
+        align-items: center;
+        width: 100%;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container { 
+        gap: 10px; 
+    }
+
+    .logo { 
+        font-size: 1em; 
+    }
+
+    .logo1 { 
+        font-size: 0.8em; 
+    }
+
+    .logosby { 
+        width: 35px; height: 35px; 
+    }
+
+    header { 
+        padding: 10px 15px; 
+    }
+
+    .hamburger {
+         width: 40px; height: 40px; 
+    }
+
+    .hamburger span {
+         width: 20px;
+    }
+    .banner {
+      height: 220px;
+    }
+
+    .banner-text .banner-text1 {
+        top: 57%;
+        font-size: 1em;
+    }
+
+    .banner-text .banner-text2 {
+      top: 68%;
+      text-wrap: none;
+      font-size: 9px; 
+      line-height: 1.3;
+      max-width: 95%;
+    }
+
+    .container-alur img{
+    max-width: 330px;
+    } 
+
+    .imgalur {
+      max-width: 98%;
+      margin-top: 30px;
+    }
+
+    .container-magang, .container-penelitian {
+        width: 95%;
+        padding: 16px;
+    }
+}

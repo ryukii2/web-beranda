@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectDinasKesehatan</title>
+    <link rel="stylesheet" href="beranda.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="LogoPemkot.png" alt="LogoPemkot" class="logosby">
+            <div class="logo-text">
+                <h2 class="logo">Dinas Kesehatan</h2>
+                <h3 class="logo1">Kota Surabaya</h3>
+            </div>
+        </div>
+        
+
+        <!-- navbar bagian atas -->
+        <nav class="navigation">
+            <a href="#">Beranda</a>
+            <a href="#">Pengumuman</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                 Pengajuan <ion-icon name="arrow-dropdown"></ion-icon>
+                </a>
+                     <div class="dropdown-content">
+                    <a href="#">Magang</a>
+                    <a href="#">Penelitian</a>
+                </div>
+            </div>
+
+            <a href="#">Profil</a>
+            <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+        </nav>
+
+        <!-- garis tiga untuk mobile -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </header>
+
+    <!-- Overlay Menu -->
+        <div id="overlayMenu" class="overlay">
+        <a href="javascript:void(0)" class="closebtn">&times;</a>
+            <div class="overlay-content">
+            <a href="#">Beranda</a>
+            <a href="#">Pengumuman</a>
+
+            <div class="overlay-dropdown">
+                <div class="overlay-dropdown-toggle">Pengajuan<ion-icon name="arrow-dropdown"></ion-icon></div>
+                    <div class="overlay-dropdown-content">
+                    <a href="#">Magang</a>
+                    <a href="#">Penelitian</a>
+                </div>
+            </div>
+            <a href="#">Profil</a>
+            <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+        </div>
+    </div>
+
+    
+    <!-- banner atas -->
+    <section class="banner">
+        <img src="dinaskesehatan.jpg" alt="banner" class="banner-img">
+        <div class="banner-text">
+            <h2 class="banner-text1">Selamat Datang</h2>
+            <h3 class="banner-text2">Portal Resmi Pendaftaran Magang & Penelitian Dinas Kesehatan Kota Surabaya</h3>
+        </div>
+    </section>
+
+
+    <!-- gambar alur -->
+     <h2 class="judul-alur">ALUR MAGANG & PENELITIAN</h2>
+     <div class="container-alur">
+        <div class="alur-img">
+        <img src="alur.png" alt="alur" class="imgalur">
+     </div>
+ </div>
+    
+
+
+
+    <h2 class="judul-pengajuan">PENGAJUAN MAGANG DAN PENELITIAN</h2>
+    <!-- container untuk pengajuan -->
+        <div class="container-pengajuan">  
+        <div class="container-magang">
+            <div class="container">
+                <h2>Pengajuan Magang/Kerja Praktik</h2>
+                <p>Ajukan permohonan magang/kerja praktik di dinas kesehatan</p>
+            </div>
+            <div>
+                <button class="btn-magang" onclick="window.location.href='magang.html'">Ajukan Magang</button>
+            </div>
+        </div>
+
+        <div class="container-penelitian">
+            <div class="container">
+                <h2>Pengajuan Penelitian</h2>
+                <p>Ajukan permohonan penelitian di dinas kesehatan</p>
+            </div>
+            <div>
+                <button class="btn-penelitian" onclick="window.location.href='penelitian.html'">Ajukan Penelitian</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Header dengan logo dan judul -->
+            <div class="footer-header">
+                <img src="LogoPemkot.png" alt="Logo Dinas Kesehatan" class="footer-logo">
+                <div class="footer-title">
+                    <h3>Dinas Kesehatan</h3>
+                    <h4>Kota Surabaya</h4>
+                </div>
+            </div>
+            
+            <!-- Informasi alamat -->
+            <div class="footer-info">
+                <p class="alamat">Jl. Raya Jemursari No.197, Sidosermo, Kec. Wonocolo, Surabaya,</p>
+                <p>Jawa Timur 60239</p>
+                <p>Telp. (031) 8439473 - Fax. 0</p>
+                <p class="email"><a href="https://dinkes-surabaya.com/">dinkes@dinkes-surabaya.com</a></p>
+            </div>
+        </div>  
+
+
+        <!-- ikon ikon sosial media di footer -->
+        <div class="social-media">
+            <h4>Media Sosial</h4>
+            <div class="social-icons">
+                <a href="https://youtube.com" target="_blank" title="YouTube">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+                <a href="https://instagram.com" target="_blank" title="Instagram">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://facebook.com" target="_blank" title="Facebook">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://twitter.com" target="_blank" title="Twitter">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Ionicons Scripts -->
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="beranda.js"></script>
+    
+</body>
+</html>
